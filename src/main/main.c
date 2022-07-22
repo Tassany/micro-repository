@@ -42,7 +42,7 @@ void app_main(void)
 
 esp_err_t index_handler(httpd_req_t *req)
 {
-    httpd_resp_send_chunk(req, "acho que to apx", 16);
+    httpd_resp_send_chunk(req, "eita", 16);
     httpd_resp_send_chunk(req, NULL, 0);
     return ESP_OK;
 }
@@ -60,7 +60,7 @@ esp_err_t set_temperature_handler(httpd_req_t *req)
         printf("%c", buff[w]);
     }
 
-    httpd_resp_send_chunk(req, "acho que to apx", 16);
+    httpd_resp_send_chunk(req, "eita", 16);
     httpd_resp_send_chunk(req, NULL, 0);
     return ESP_OK;
 }
