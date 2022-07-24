@@ -42,7 +42,7 @@ void app_main(void)
 
 esp_err_t index_handler(httpd_req_t *req)
 {
-    httpd_resp_send_chunk(req, "Camarões!", 10);
+    httpd_resp_send_chunk(req, "eita", 16);
     httpd_resp_send_chunk(req, NULL, 0);
     return ESP_OK;
 }
@@ -60,23 +60,7 @@ esp_err_t set_temperature_handler(httpd_req_t *req)
         printf("%c", buff[w]);
     }
 
-    httpd_resp_send_chunk(req, NULL, 0);
-    return ESP_OK;
-}
-
-esp_err_t set_bomb_handler(httpd_req_t *req)
-{
-    char *buff = NULL;
-    uint32_t size_buff = req->content_len + 1;
-    buff = (char *)calloc(size_buff, sizeof(char));
-
-    post_reception(req, buff, size_buff);
-
-    for (int w = 0; w < size_buff; w++)
-    {
-        printf("%c", buff[w]);
-    }
-
+    httpd_resp_send_chunk(req, "eita", 16);
     httpd_resp_send_chunk(req, NULL, 0);
     return ESP_OK;
 }
@@ -90,12 +74,6 @@ httpd_uri_t urls[] = {
         .uri = "/settemp",
         .method = HTTP_POST,
         .handler = set_temperature_handler,
-        .user_ctx = NULL,
-    },
-    {
-        .uri = "/setbomb",
-        .method = HTTP_POST,
-        .handler = set_bomb_handler,
         .user_ctx = NULL,
     },
 };
